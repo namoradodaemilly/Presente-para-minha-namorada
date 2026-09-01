@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para a pessoa mais importante da minha vida 💚</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #160b18, #3b142c, #741b47);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .inicio {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .coracao {
+            font-size: 70px;
+            animation: pulsar 1.5s infinite;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .subtitulo {
+            max-width: 500px;
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            background: white;
+            color: #741b47;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .conteudo {
+            display: none;
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .conteudo h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .conteudo p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .coracoes {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .coracoes span {
+            position: absolute;
+            bottom: -50px;
+            animation: subir 8s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes pulsar {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-110vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="coracoes">
+        <span style="left:10%; animation-delay:0s;">💚</span>
+        <span style="left:25%; animation-delay:2s;">💗</span>
+        <span style="left:45%; animation-delay:4s;">💚</span>
+        <span style="left:65%; animation-delay:1s;">💕</span>
+        <span style="left:85%; animation-delay:3s;">💚</span>
+    </div>
+
+    <section class="inicio">
+
+        <div class="coracao">💚</div>
+
+        <h1>Para a pessoa mais importanteda minha vida 💚</h1>
+
+        <p class="subtitulo">
+            Eu preparei uma pequena surpresa para você...
+            Mesmo estando longe, queria encontrar uma maneira
+            de estar pertinho de você nesse dia.
+        </p>
+
+        <button onclick="abrirSurpresa()">
+            Abrir minha surpresa 💚
+        </button>
+
+    </section>
+
+    <section class="conteudo" id="surpresa">
+
+        <h2>Feliz aniversário, minha miranha! 🎂💚</h2>
+
+        <p>
+            Aqui vai começar a nossa história...
+        </p>
+
+        <br>
+
+        <p>
+            Este é apenas o começo. Ainda temos muita coisa
+            para viver juntos. 💕
+        </p>
+
+    </section>
+
+    <script>
+        function abrirSurpresa() {
+
+            document.querySelector(".inicio").style.display = "none";
+
+            document.querySelector("#surpresa").style.display = "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    </script>
+
+</body>
+</html>
