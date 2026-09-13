@@ -140,7 +140,7 @@
 
         <div class="coracao">💚</div>
 
-        <h1>Para a pessoa mais importanteda minha vida 💚</h1>
+        <h1>Para a pessoa mais importante da minha vida 💚</h1>
 
         <p class="subtitulo">
             Eu preparei uma pequena surpresa para você...
@@ -151,7 +151,10 @@
         <button onclick="abrirSurpresa()">
             Abrir minha surpresa 💚
         </button>
-
+<div id="contador">
+    <p>Contando os dias até o seu aniversário... 💚</p>
+    <h2 id="tempo">Carregando...</h2>
+</div>
     </section>
 
     <section class="conteudo" id="surpresa">
@@ -172,17 +175,45 @@
     </section>
 
     <script>
-        function abrirSurpresa() {
 
-            document.querySelector(".inicio").style.display = "none";
+    // CONTADOR
+    function atualizarContador() {
 
-            document.querySelector("#surpresa").style.display = "block";
+        const agora = new Date();
+        const aniversario = new Date("2026-09-23T00:00:00");
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+        const diferenca = aniversario - agora;
+
+        if (diferenca <= 0) {
+            document.getElementById("tempo").innerHTML =
+                "FELIZ ANIVERSÁRIO, MINHA MIRANHA! 🎂💚";
+            return;
         }
+
+        const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+        const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
+        const segundos = Math.floor((diferenca / 1000) % 60);
+
+        document.getElementById("tempo").innerHTML =
+            `${dias}d ${horas}h ${minutos}min ${segundos}s`;
+    }
+
+    atualizarContador();
+    setInterval(atualizarContador, 1000);
+
+    function abrirSurpresa() {
+
+        document.querySelector(".inicio").style.display = "none";
+
+        document.querySelector("#surpresa").style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+        
     </script>
 
 </body>
