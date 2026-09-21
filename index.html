@@ -330,9 +330,11 @@
         });
     }
             function mostrarResposta(id) {
-        document.getElementById(id).style.display = "block";
-            }
-    </script>
+    const resposta = document.getElementById(id);
 
-</body>
-</html>
+    if (resposta.style.display === "none") {
+        resposta.style.display = "block";
+    } else {
+        resposta.style.display = "none";
+    }
+            }
