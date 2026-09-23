@@ -14,6 +14,7 @@
         }
 
         body {
+            
             min-height: 100vh;
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #160b18, #3b142c, #741b47);
@@ -142,6 +143,13 @@
 </head>
 
 <body>
+    <audio id="musicaFundo" loop>
+        <source src="Jean Paulo Campos - Peraí.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="botaoMusica" onclick="alternarMusica()" style="display:none;">
+        🔊 Pausar música
+    </button>
 
     <div class="coracoes">
         <span style="left:10%; animation-delay:0s;">💚</span>
@@ -406,9 +414,6 @@ onclick="mostrarResposta('respostaJujuba8')">
     <em>“E.E - Aiai primeiro sonho é?, falo é nada”</em>
 </p>
 
-    
-</p>
-
 <button onclick="mostrarResposta('respostaSonho2')">
     Clica aqui para ver minha resposta final 🫦
 </button>
@@ -429,9 +434,6 @@ onclick="mostrarResposta('respostaJujuba8')">
 
 <p id="respostaTextao1" style="display:none;">
     <em>“É q tu é meio baitola mesmo, dai se treme todo”</em>
-</p>
-
-        
 </p>
 
 <button onclick="mostrarResposta('respostaTextao2')">
@@ -1188,7 +1190,32 @@ function atualizarContador() {
 function abrirSurpresa() {
     document.querySelector(".inicio").style.display = "none";
     document.querySelector("#surpresa").style.display = "block";
+
+    const musica = document.getElementById("musicaFundo");
+    const botao = document.getElementById("botaoMusica");
+
+    musica.volume = 0.5;
+
+    musica.play().then(() => {
+        botao.style.display = "inline-block";
+    }).catch(() => {
+        botao.style.display = "inline-block";
+        botao.innerHTML = "🎵 Tocar música";
+    });
 }
+
+function alternarMusica() {
+    const musica = document.getElementById("musicaFundo");
+    const botao = document.getElementById("botaoMusica");
+
+    if (musica.paused) {
+        musica.play();
+        botao.innerHTML = "🔊 Pausar música";
+    } else {
+        musica.pause();
+        botao.innerHTML = "🔇 Tocar música";
+    }
+        }
 
 function mostrarResposta(id) {
     document.getElementById(id).style.display = "block";
